@@ -10,7 +10,7 @@ def generate_exercise():
     a, b = random.randrange(max_num), random.randrange(max_num)
     if a < b:
         a, b = b, a
-    res = ' '.join([str(a), "+", str(b), "="])
+    res = ' '.join([str(a), random.choice(['+', '-']), str(b), "="])
     if len(res) < 9:
         res += '&ensp;' * (9 - len(res))
     return res
