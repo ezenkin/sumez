@@ -1,3 +1,4 @@
+import bottle
 from bottle import run, route
 import random
 
@@ -21,6 +22,8 @@ def home():
         res += '<h2>' + line
     return res
 
+if __name__ == "__main__":
+    run(host='0.0.0.0', port='9999')
 
-run(host='0.0.0.0', port='9999')
+app = bottle.default_app()
 # print(home())
