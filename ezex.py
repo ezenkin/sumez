@@ -7,7 +7,7 @@ max_num = 20
 
 
 def generate_exercise():
-    a, b = random.randrange(max_num), random.randrange(max_num)
+    a, b = random.randrange(1, max_num), random.randrange(1, max_num)
     if a < b:
         a, b = b, a
     res = ' '.join([str(a), random.choice(['+', '-']), str(b), "="])
