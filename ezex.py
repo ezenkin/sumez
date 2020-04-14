@@ -6,30 +6,35 @@ import random
 max_num = 20
 
 
-def generate_exercise():
+def gen_one_ex():
     a, b = random.randrange(1, max_num), random.randrange(1, max_num)
     if a < b:
         a, b = b, a
-    res = ' '.join([str(a), random.choice(['+', '-']), str(b), "="])
-    if len(res) < 9:
-        res += '&ensp;' * (9 - len(res))
+    return ' '.join([str(a), random.choice(['+', '-']), str(b), "="])
+
+
+def gen_ex_str(num):
+    res = '<tr>'
+    for i in range(num):
+        res += '<td style="padding: 6px">' + gen_one_ex() + '</td>'
+    res += '</tr>'
+    return res
+
+
+def gen_table(row, col):
+    res = '<!DOCTYPE html><font style="font-size:24px"><b><table style="width:100%">'
+    for i in range(row):
+        res += gen_ex_str(col)
+    res += '</table></b>'
     return res
 
 
 @route('/')
 def home():
-    res = ""
-    for i in range(20):
-        line = ""
-        for j in range(4):
-
-            line += generate_exercise() + '&emsp;&emsp;&emsp;'
-        res += '<h2>' + line
-    return res
+    return gen_table(25, 4)
 
 
 if __name__ == "__main__":
     run(host='0.0.0.0', port='9999')
 
 app = bottle.default_app()
-# print(home())
