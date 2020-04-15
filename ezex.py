@@ -1,5 +1,4 @@
-import bottle
-from bottle import run, route
+import flask
 import random
 
 
@@ -29,12 +28,13 @@ def gen_table(row, col):
     return res
 
 
-@route('/')
+app = flask.Flask(__name__)
+
+
+@app.route('/')
 def home():
     return gen_table(25, 4)
 
 
 if __name__ == "__main__":
-    run(host='0.0.0.0', port='9999')
-
-app = bottle.default_app()
+    app.run(host='0.0.0.0')
