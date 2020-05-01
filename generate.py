@@ -1,20 +1,27 @@
 import random
 
 
-max_num = 20
+def sign(b):
+    if b:
+        return '+'
+    return '-'
 
 
-def gen_one_ex():
-    a, b = random.randrange(1, max_num), random.randrange(1, max_num)
-    if a < b:
-        a, b = b, a
-    return ' '.join([str(a), random.choice(['+', '-']), str(b), "="])
+def gen_one_ex(max_res):
+    a, b = 0, 0
+    while a == b:
+        a, b, s = random.randrange(1, max_res), random.randrange(1, max_res), True
+
+    if a + b >= max_res:
+        a, b, s = max(a, b), min(a, b), False
+
+    return ' '.join([str(a), sign(s), str(b), "="])
 
 
 def gen_ex_str(num):
     res = '<tr>'
     for i in range(num):
-        res += '<td style="padding: 6px">' + gen_one_ex() + '</td>'
+        res += '<td style="padding: 6px">' + gen_one_ex(20) + '</td>'
     res += '</tr>'
     return res
 
