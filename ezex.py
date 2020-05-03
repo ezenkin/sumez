@@ -7,11 +7,17 @@ app = flask.Flask(__name__)
 
 @app.route('/')
 def home():
-    max_num = flask.request.args.get('max_num')
-    count = flask.request.args.get('count')
-    # TODO: check parameters
-    exs = generate.exercises(int(count), int(max_num))
-    print(exs)
+    try:
+        max_num = int(flask.request.args.get('max_num'))
+    except:
+        max_num = 10
+
+    try:
+        count = int(flask.request.args.get('count'))
+    except:
+        count = 100
+
+    exs = generate.exercises(count, max_num)
     t = flask.Markup(generate.table(exs, 4))
     return flask.render_template('page.html', table=t)
 
