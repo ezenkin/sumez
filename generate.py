@@ -37,11 +37,13 @@ def table(exs, cols):
     res = '<table style="width:100%">'
     row = []
     for ex in exs:
-        if len(row) < cols:
-            row.append(ex)
-        else:
+        row.append(ex)
+        if len(row) >= cols:
             res += generate_table_row(row)
             row = []
+
+    if len(row):
+        res += generate_table_row(row)
 
     res += '</table></b>'
     return res
