@@ -18,17 +18,30 @@ def gen_one_ex(max_res):
     return ' '.join([str(a), sign(s), str(b), "="])
 
 
-def gen_ex_str(num):
+def exercises(count, max_num):
+    res = []
+    for i in range(count):
+        res.append(gen_one_ex(max_num))
+    return res
+
+
+def generate_table_row(exs):
     res = '<tr>'
-    for i in range(num):
-        res += '<td style="padding: 6px">' + gen_one_ex(20) + '</td>'
+    for ex in exs:
+        res += '<td style="padding: 6px">' + ex + '</td>'
     res += '</tr>'
     return res
 
 
-def table(row, col):
+def table(exs, cols):
     res = '<table style="width:100%">'
-    for i in range(row):
-        res += gen_ex_str(col)
+    row = []
+    for ex in exs:
+        if len(row) < cols:
+            row.append(ex)
+        else:
+            res += generate_table_row(row)
+            row = []
+
     res += '</table></b>'
     return res
