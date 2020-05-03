@@ -19,7 +19,8 @@ def home():
 
     exs = generate.exercises(count, max_num)
     t = flask.Markup(generate.table(exs, 4))
-    return flask.render_template('page.html', table=t)
+    s = str(count) + " примеров до " + str(max_num)
+    return flask.render_template('page.html', title=s, table=t)
 
 
 if __name__ == "__main__":
