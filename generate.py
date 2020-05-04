@@ -28,13 +28,13 @@ def exercises(count, max_num):
 def generate_table_row(exs):
     res = '<tr>'
     for ex in exs:
-        res += '<td style="padding: 6px">' + ex + '</td>'
+        res += '<td>' + ex + '</td>'
     res += '</tr>'
     return res
 
 
 def table(exs, cols):
-    res = '<table style="width:100%">'
+    res = '<table>'
     row = []
     for ex in exs:
         row.append(ex)
@@ -45,5 +45,5 @@ def table(exs, cols):
     if len(row):
         res += generate_table_row(row)
 
-    res += '</table></b>'
+    res += '</table>'
     return res
