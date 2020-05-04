@@ -3,15 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>{{title}}</title>
-    <style>
-        table {
-            width: 100%;
-            font-size: x-large; /* 24px */
-        }
-        td {
-            padding: 6px;
-        }
-    </style>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='page.css') }}">
 </head>
 <body>
     <b>{{table}}</b>
