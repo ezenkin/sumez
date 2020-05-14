@@ -1,6 +1,6 @@
-# ezex
+### https://ezex.herokuapp.com
 
-https://ezex.herokuapp.com
+---
 
 Generates exercises to sum and difference of two numbers.
 
