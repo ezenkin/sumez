@@ -15,7 +15,7 @@ def home():
     try:
         count = int(flask.request.args.get('count'))
     except:
-        count = 100
+        count = 80
 
     exs = generate.exercises(count, max_num)
     t = flask.Markup(generate.table(exs, 4))
