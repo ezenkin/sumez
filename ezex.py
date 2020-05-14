@@ -8,18 +8,18 @@ app = flask.Flask(__name__)
 @app.route('/')
 def home():
     try:
-        max_num = int(flask.request.args.get('max_num'))
+        result = int(flask.request.args.get('result'))
     except:
-        max_num = 10
+        result = 10
 
     try:
         count = int(flask.request.args.get('count'))
     except:
         count = 80
 
-    exs = generate.exercises(count, max_num)
+    exs = generate.exercises(count, result)
     t = flask.Markup(generate.table(exs, 4))
-    s = str(count) + " примеров до " + str(max_num)
+    s = str(count) + " примеров до " + str(result)
     return flask.render_template('page.html', title=s, table=t)
 
 
