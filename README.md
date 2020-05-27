@@ -1,4 +1,4 @@
-# ezex
+# sumez
 
 https://sumez.herokuapp.com
 
