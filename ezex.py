@@ -8,12 +8,12 @@ app = flask.Flask(__name__)
 @app.route('/')
 def home():
     try:
-        result = int(flask.request.args.get('result'))
+        result = int(flask.request.args.get('max'))
     except:
         result = 10
 
     try:
-        count = int(flask.request.args.get('count'))
+        count = int(flask.request.args.get('num'))
     except:
         count = 80
 
