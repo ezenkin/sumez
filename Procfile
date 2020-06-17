@@ -1,1 +1,1 @@
-web: gunicorn ezex:app
+web: gunicorn sumez:app
